@@ -141,6 +141,31 @@ newObject.z = undefined;
 console.log(newObject.z);
 console.log('z' in newObject);
 
+//Cycles
+///////////////////////////
+console.log('Cycle for 1 :');
+for(let i = 0; i < 10; i++) {
+    console.log(i);
+}
+console.log('Cycle for 2 :');
+for(let i = 10; i--;) {
+    console.log(i);
+}
+console.log('Cycle while :')
+let i = 10;
+while (i--) {
+    console.log(i)
+}
+
+let array = [1, 2, "string", {name: 'ds', key: 2}, ['sd',5]];
+console.log('For in:')
+for (let key in array) {
+    console.log(key);
+}
+console.log('For of:')
+for (let key of array) {
+    console.log(key);
+}
 //Functions
 ///////////////////////////
 
@@ -157,7 +182,31 @@ let myFunc1 = function (name) {
 //new Function
 let sum = new Function('a,b','return a + b;');
 let result = sum(1, 2);
-console.log(result);
+console.log(`Sum:`,result);
 
 console.log(typeof myFunc)
 console.log(typeof myFunc())
+
+let anonFunct = () => console.log('launch anonymous function');
+anonFunct();
+
+let callBackFunct = function () {
+    console.log('This is callback function');
+}
+
+let functionCall = function () {
+    setTimeout(callBackFunct, 2000);
+}
+functionCall();
+
+let argFunct = function () {
+    console.log(arguments)
+}
+
+argFunct(1, [1, {}, '231'], {}, {name: "Sasha"}, 'string');
+
+let argFunctES6 = function (...args) {
+    console.log(args);
+}
+
+argFunctES6(1, [1, {}, '231'], {}, {name: "Sasha"}, 'string');
