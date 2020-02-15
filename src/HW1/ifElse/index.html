@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- подключаем стили Mocha, для отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <!-- подключаем библиотеку Mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+    <script>
+        mocha.setup('bdd');
+    </script>
+
+    <!-- подключаем chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <!-- в chai есть много всего, выносим assert в глобальную область -->
+    <script>
+        var assert = chai.assert;
+    </script>
+    <script src="task1.js"></script>
+    <script src="task2.js"></script>
+    <script src="task3.js"></script>
+    <script src="task4.js"></script>
+    <script src="task5.js"></script>
+
+
+</head>
+<body>
+<!-- в элементе с id="mocha" будут результаты тестов -->
+<div id="mocha"></div>
+<!-- запустить тесты! -->
+<script>
+    // task1
+    describe("SumOrMulti", function() {
+        it("передаем а = 5, b = 10", function() {
+            assert.equal(SumOrMulti(5, 10), 15);
+        });
+        it("передаем а = 6, b = -4", function() {
+            assert.equal(SumOrMulti(6, -4), -24);
+        });
+        it("передаем а = null, b = 10", function() {
+            assert.equal(SumOrMulti(null, 10), null);
+        });
+        it("передаем а = null, b = undefined", function() {
+            assert.equal(SumOrMulti(null, undefined), null);
+        });
+        it("передаем а = 5, b = undefined", function() {
+            assert.equal(SumOrMulti(5, undefined), null);
+        });
+        it("передаем а = NaN, b = 10", function() {
+            assert.equal(SumOrMulti(NaN, 10), null);
+        });
+        it("передаем а = 5, b = Infinity", function() {
+            assert.equal(SumOrMulti(5, Infinity), null);
+        });
+    });
+
+    //task2
+    describe("QuarterOfPoint", function () {
+        it('передаем x = 5, y = 10', function () {
+            assert.equal(QuarterOfPoint(5, 10), "Точка лежит в I четверти");
+        });
+        it('передаем x = -5, y = -10', function () {
+            assert.equal(QuarterOfPoint(-5, -10), "Точка лежит в III четверти");
+        });
+        it('передаем x = NaN, y = undefined', function () {
+            assert.equal(QuarterOfPoint(NaN, undefined), null);
+        });
+        it('передаем x = 0, y = undefined', function () {
+            assert.equal(QuarterOfPoint(0, undefined), null);
+        });
+        it('передаем x = 0, y = NaN', function () {
+            assert.equal(QuarterOfPoint(0, NaN), null);
+        });
+        it('передаем x = 0, y = -5', function () {
+            assert.equal(QuarterOfPoint(0, -5), "Точка лежит на оси Y");
+        });
+        it('передаем x = 0, y = 0', function () {
+            assert.equal(QuarterOfPoint(0, 0), "Точка лежит в центре координат");
+        });
+    });
+
+    //task3
+    describe("SumOfPositive", function () {
+        it('передаем a = 5, b = 10, c = 8', function () {
+            assert.equal(SumOfPositive(5, 10, 8), 23);
+        });
+        it('передаем a = -15, b = 10, c = 8', function () {
+            assert.equal(SumOfPositive(-15, 10, 8), 18);
+        });
+        it('передаем a = 0, b = 0, c = 0', function () {
+            assert.equal(SumOfPositive(0, 0, 0), 0);
+        });
+        it('передаем a = NaN, b = 10, c = 8', function () {
+            assert.equal(SumOfPositive(NaN, 10, 8), null);
+        });
+        it('передаем a = 5, b = undefined, c = 8', function () {
+            assert.equal(SumOfPositive(5, undefined, 8), null);
+        });
+        it('передаем a = 5, b = 10, c = Infinity', function () {
+            assert.equal(SumOfPositive(5, 10, Infinity), null);
+        });
+    });
+
+    //task4
+    describe("MultiplyOrSum", function () {
+        it('передаем a = 5, b = 10, c = 8', function () {
+            assert.equal(MultiplyOrSum(5, 10, 8), 403);
+        });
+        it('передаем a = -15, b = 10, c = 8', function () {
+            assert.equal(MultiplyOrSum(-15, 10, 8), 6);
+        });
+        it('передаем a = 0, b = 0, c = 0', function () {
+            assert.equal(MultiplyOrSum(0, 0, 0), 3);
+        });
+        it('передаем a = NaN, b = 10, c = 8', function () {
+            assert.equal(MultiplyOrSum(NaN, 10, 8), null);
+        });
+        it('передаем a = 5, b = undefined, c = 8', function () {
+            assert.equal(MultiplyOrSum(5, undefined, 8), null);
+        });
+        it('передаем a = 5, b = 10, c = Infinity', function () {
+            assert.equal(MultiplyOrSum(5, 10, Infinity), null);
+        });
+    });
+
+    //task5
+    describe("YourMark", function () {
+        it('передаем mark = 85', function () {
+            assert.equal(YourMark(80), "B");
+        });
+        it('передаем mark = -60', function () {
+            assert.equal(YourMark(-60), null);
+        });
+        it('передаем mark = NaN', function () {
+            assert.equal(YourMark(NaN), null);
+        });
+        it('передаем mark = undefined', function () {
+            assert.equal(YourMark(undefined), null);
+        });
+        it('передаем mark = Infinity', function () {
+            assert.equal(YourMark(Infinity), null);
+        });
+    });
+</script>
+<script>
+    mocha.run();
+</script>
+</body>
+</html>

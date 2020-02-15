@@ -1,11 +1,11 @@
-let a = 3;
-let b = 5;
-let c = -1;
-if(a*b*c > a+b+c)
-{
-    console.log(a*b*c+3);
-}
-else
-{
-    console.log(a+b+c+3);
+"use strict";
+
+function MultiplyOrSum(a, b, c) {
+    if(typeof a == "number" && typeof b == "number" && typeof c == "number" && isFinite(a) && isFinite(b) && isFinite(c)) {
+        if (a * b * c > a + b + c) {
+            return a * b * c + 3;
+        }
+        return a + b + c + 3;
+    }
+    return null;
 }

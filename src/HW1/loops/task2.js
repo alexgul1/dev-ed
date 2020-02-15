@@ -1,29 +1,21 @@
-let test = false;
-let num = 11;
-if (num <=0)
-{
-    console.log("Только натуральные числа!")
-}
-else
-{
-    for(let i = 2; i <= num; i++)
-    {
-        if(num % i == 0 & i != num)
-        {
-            test = false;
-            break;
+"use strict";
+
+function IsPrimeNumber(num) {
+    if(typeof num == "number" && isFinite(num) && num > 0) {
+        let test = false;
+        for (let i = 2; i <= num; i++) {
+            if (num % i === 0 && i !== num) {
+                test = false;
+                break;
+            } else {
+                test = true;
+            }
         }
-        else
-        {
-            test = true;
+        if (test) {
+            return "Число простое";
+        } else {
+            return "Число не простое";
         }
     }
-    if (test)
-    {
-        console.log("Число простое");
-    }
-    else
-    {
-        console.log("Число не простое")
-    }
+    return null;
 }

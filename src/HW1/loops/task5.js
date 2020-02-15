@@ -1,16 +1,16 @@
-let _num = -53244231;
-
-Sums(_num)
-function Sums (_num)
-{
-    let _sum = 0;
-    let n = _num.toString();
-    for (let i =0; i<n.length; i++)
-    {
-        if(n[i]== "-")
-        {continue;}
-        else
-        {_sum += parseInt(n[i]);}
+"use strict";
+function SumOfDigits (num) {
+    if(typeof num == "number" && isFinite(num)) {
+        let sum = 0;
+        let n = num.toString();
+        for (let i = 0; i < n.length; i++) {
+            if (n[i] === "-") {
+                continue;
+            } else {
+                sum += parseInt(n[i]);
+            }
+        }
+        return sum;
     }
-     console.log(_sum)
+    return  null;
 }

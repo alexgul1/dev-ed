@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- подключаем стили Mocha, для отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <!-- подключаем библиотеку Mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+    <script>
+        mocha.setup('bdd');
+    </script>
+
+    <!-- подключаем chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <!-- в chai есть много всего, выносим assert в глобальную область -->
+    <script>
+        var assert = chai.assert;
+    </script>
+    <script src="task1.js"></script>
+    <script src="task2.js"></script>
+    <script src="task3.js"></script>
+    <script src="task4.js"></script>
+    <script src="task5.js"></script>
+    <script src="task6.js"></script>
+
+</head>
+<body>
+<!-- в элементе с id="mocha" будут результаты тестов -->
+<div id="mocha"></div>
+<!-- запустить тесты! -->
+<script>
+    // task1
+    describe('HundredPairNumbers', function () {
+        it('Жду результат', function () {
+            assert.equal(HundredPairNumbers(),"Сумма 2450 Количество 49");
+        });
+    });
+    
+    // task2
+    describe('IsPrimeNumber', function () {
+        it('передаем number = 5', function () {
+            assert.equal(IsPrimeNumber(5), "Число простое");
+        });
+        it('передаем number = 4', function () {
+            assert.equal(IsPrimeNumber(4), "Число не простое");
+        });
+        it('передаем number = -20', function () {
+            assert.equal(IsPrimeNumber(-20), null);
+        });
+        it('передаем number = NaN', function () {
+            assert.equal(IsPrimeNumber(NaN), null);
+        });
+        it('передаем number = Infinity', function () {
+            assert.equal(IsPrimeNumber(Infinity), null);
+        });
+        it('передаем number = undefined', function () {
+            assert.equal(IsPrimeNumber(undefined), null);
+        });
+    });
+
+    //task3.1
+    describe('SquareRoot', function () {
+        it('передаем 200', function () {
+            assert.equal(SquareRoot(200), 15)
+        });
+        it('передаем 392', function () {
+            assert.equal(SquareRoot(392), 20)
+        });
+        it('передаем 121', function () {
+            assert.equal(SquareRoot(121), 11);
+        });
+        it('передаем -5', function () {
+            assert.equal(SquareRoot(-5), null);
+        });
+        it('передаем Infinity', function () {
+            assert.equal(SquareRoot(Infinity), null);
+        });
+        it('передаем NaN', function () {
+            assert.equal(SquareRoot(NaN), null);
+        });
+    });
+
+    // task3.2
+    describe('SquareRootBinary', function () {
+        it('передаем 200', function () {
+            assert.equal(SquareRootBinary(200), 15)
+        });
+        it('передаем 392', function () {
+            assert.equal(SquareRootBinary(392), 20)
+        });
+        it('передаем 121', function () {
+            assert.equal(SquareRootBinary(121), 11);
+        });
+        it('передаем -5', function () {
+            assert.equal(SquareRootBinary(-5), null);
+        });
+        it('передаем Infinity', function () {
+            assert.equal(SquareRootBinary(Infinity), null);
+        });
+        it('передаем NaN', function () {
+            assert.equal(SquareRootBinary(NaN), null);
+        });
+    });
+
+    // task4
+    describe('SquareRootBinary', function () {
+        it('передаем 6', function () {
+            assert.equal(Factorial(6), 720)
+        });
+        it('передаем -5', function () {
+            assert.equal(Factorial(-5), null);
+        });
+        it('передаем Infinity', function () {
+            assert.equal(Factorial(Infinity), null);
+        });
+        it('передаем NaN', function () {
+            assert.equal(Factorial(NaN), null);
+        });
+    });
+
+    // task5
+    describe('SumOfDigits', function () {
+        it('передаем 123456', function () {
+            assert.equal(SumOfDigits(123456), 21)
+        });
+        it('передаем -23123456', function () {
+            assert.equal(SumOfDigits(-23123456), 26)
+        });
+        it('передаем Infinity', function () {
+            assert.equal(SumOfDigits(Infinity), null);
+        });
+        it('передаем NaN', function () {
+            assert.equal(SumOfDigits(NaN), null);
+        });
+    });
+
+    // task6
+    describe('FlipNum', function () {
+        it('передаем 46583', function () {
+            assert.equal(FlipNum(46583), 38564);
+        });
+        it('передаем -2546489', function () {
+            assert.equal(FlipNum(-2546489), -9846452);
+        });
+        it('передаем null', function () {
+            assert.equal(FlipNum(null), null);
+        });
+        it('передаем 0', function () {
+            assert.equal(FlipNum(0), 0);
+        });
+        it('передаем undefined', function () {
+            assert.equal(FlipNum(undefined),null)
+        });
+    });
+</script>
+<script>
+    mocha.run();
+</script>
+</body>
+</html>

@@ -1,19 +1,22 @@
-let _arr = [5,10,654,11,-45,3,98,-568,12,-56];
-BubbleSort(_arr);
+"use strict";
+function IsFiniteNumber(num) {
+    return typeof num == "number" && isFinite(num);
+}
 
-function BubbleSort(_arr)
-{
-    for (let i = 0 ; i<_arr.length;i++)
-    {
-        for(let j = 0; j<_arr.length-i-1;j++)
-        {
-            if(_arr[j]>_arr[j+1])
-            {
-                let _temp = _arr[j];
-                _arr[j]=_arr[j+1];
-                _arr[j+1]= _temp;
+function BubbleSort(arr) {
+    if(Array.isArray(arr) && arr.length !== 0) {
+        if (arr.every(IsFiniteNumber)) {
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr.length - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
             }
+            return arr;
         }
     }
-    console.log(_arr)
+    return null;
 }

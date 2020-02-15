@@ -1,5 +1,4 @@
-let day = 4;
-console.log(DayOfWeek(day))
+"use strict";
 
 function DayOfWeek(day)
 {
@@ -19,7 +18,7 @@ function DayOfWeek(day)
         case 7:
             return "Воскресенье";
         default:
-            return "Нет такого значения"
+            return null;
         
     }
 

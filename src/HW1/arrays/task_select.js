@@ -1,19 +1,24 @@
-let _arr = [5,10,654,11,-45,3,98,-568,12,-56];
-SelectSort(_arr);
+"use strict";
+function IsFiniteNumber(num) {
+    return typeof num == "number" && isFinite(num);
+}
 
-function SelectSort(_arr)
-{
-    for(let i = 0; i<_arr.length;i++)
-    {
-        let _min = i;
-        for (let j = i+1; j<_arr.length;j++)
-        {
-            if(_arr[j]<_arr[_min])
-            {_min = j;}
+function SelectSort(arr) {
+    if(Array.isArray(arr) && arr.length !== 0) {
+        if (arr.every(IsFiniteNumber)) {
+            for (let i = 0; i < arr.length; i++) {
+                let min = i;
+                for (let j = i + 1; j < arr.length; j++) {
+                    if (arr[j] < arr[min]) {
+                        min = j;
+                    }
+                }
+                let temp = arr[min];
+                arr[min] = arr[i];
+                arr[i] = temp;
+            }
+            return arr;
         }
-        let _temp = _arr[_min];
-        _arr[_min] = _arr[i];
-        _arr[i]= _temp;
     }
-    console.log(_arr)
+    return null;
 }

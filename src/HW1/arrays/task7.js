@@ -1,13 +1,20 @@
-let _arr = [5,10,654,11,-45,3,98,-568,12,-56];
-Count(_arr);
+"use strict";
+function IsFiniteNumber(num) {
+    return typeof num == "number" && isFinite(num);
+}
 
-function Count(_arr)
+function CountUnpairNumbers(arr)
 {
-    let _count = 0;
-    for(let i of _arr)
-    {
-        if (Math.abs(i) % 2 == 1 )
-        {_count++;}
+    if(Array.isArray(arr) && arr.length !== 0) {
+        if (arr.every(IsFiniteNumber)) {
+            let count = 0;
+            for (let i of arr) {
+                if (Math.abs(i) % 2 === 1) {
+                    count++;
+                }
+            }
+            return count;
+        }
     }
-    console.log(_count)
+    return null;
 }

@@ -26,7 +26,7 @@ function StringToNum(_strnum)
         {
             let _index = _strnum.indexOf(_size[i]);
 
-            if(_index >= 0 && _strnum[_index + _size[i].length] == ' ')
+            if(_index >= 0 && _strnum[_index + _size[i].length] === ' ')
             {
                 let _count = StringToNum(_strnum.substr(0, _index));
                 _num += _count * Math.pow(1000,i);
@@ -37,7 +37,7 @@ function StringToNum(_strnum)
     {
         let _index = _strnum.indexOf("hundred");
         
-        if(_index >= 0 && _strnum[_index + "hundred".length] == ' ')
+        if(_index >= 0 && _strnum[_index + "hundred".length] === ' ')
         {
             let _count = StringToNum(_strnum.substr(0, _index));
             _num += _count * 100;
@@ -50,7 +50,7 @@ function StringToNum(_strnum)
         {
             let _index = _strnum.indexOf(_tens[i]);
 
-            if(_index >= 0 && _strnum[_index + _tens[i].length] == ' ')
+            if(_index >= 0 && _strnum[_index + _tens[i].length] === ' ')
             {
                 _num += i * 10;
                 _strnum = _strnum.slice(_index); 
@@ -63,7 +63,7 @@ function StringToNum(_strnum)
         {
             let _index = _strnum.indexOf(_numto19[i])
             
-            if(_index >= 0 && _strnum[_index + _numto19[i].length] == ' ')
+            if(_index >= 0 && _strnum[_index + _numto19[i].length] === ' ')
             {
                 _num += i;
                 _strnum = _strnum.slice(_index); 
