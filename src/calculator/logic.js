@@ -56,7 +56,7 @@ let clearClick = function () {
 };
 
 let operationFunct = function (firstNum,secondNum,operation) {
-        if (!!operation && isFinite(firstNum)) {
+        if (!!operation && isFinite(firstNum), isFinite(secondNum)) {
             switch (operation) {
                 case "+":
                     return firstNum + secondNum;
