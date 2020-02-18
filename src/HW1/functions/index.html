@@ -64,6 +64,16 @@
         });
     });
 
+    //task 3-6
+    describe('StringToNum', function () {
+        it('передаем "ninety million one hundred fifty six thousand five hundred eighty nine"', function () {
+            assert.equal(StringToNum('ninety million one hundred fifty six thousand five hundred eighty nine'),90156589)
+        });
+        it('передаем "klfg"', function () {
+            assert.equal(StringToNum('kjfg'),0)
+        });
+
+    });
     //task4
     describe('Distance', function () {
         it('передаем x1 = 4, y1 = 3, x2 = 0, y2 = 0', function () {

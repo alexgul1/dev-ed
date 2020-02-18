@@ -61,7 +61,7 @@ function StringToNum(_strnum)
     {
         if(!isNullOrEmpty(_numto19[i]))
         {
-            let _index = _strnum.indexOf(_numto19[i])
+            let _index = _strnum.indexOf(_numto19[i]);
             
             if(_index >= 0 && _strnum[_index + _numto19[i].length] === ' ')
             {
