@@ -1,15 +1,19 @@
-let _arr = [5,10,654,-45,3,98,-568,12,-56];
-SumOfUnpair(_arr);
+"use strict";
+function IsFiniteNumber(num) {
+    return typeof num == "number" && isFinite(num);
+}
 
-function SumOfUnpair(_arr)
-{
-    let _sum = 0;
-    for (let i = 0; i<_arr.length; i++)
-    {
-        if(i % 2 == 1)
-        {
-            _sum+= _arr[i]
+function SumOfUnpair(arr) {
+    if(Array.isArray(arr) && arr.length !== 0) {
+        if (arr.every(IsFiniteNumber)) {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (i % 2 === 1) {
+                    sum += arr[i]
+                }
+            }
+            return sum;
         }
     }
-    console.log(_sum)
+    return null;
 }

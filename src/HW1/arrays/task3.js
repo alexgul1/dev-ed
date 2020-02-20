@@ -1,13 +1,19 @@
-let _arr = [5,10,654,-45,3,98,-568,12,-56];
-FindMinIndex(_arr)
+"use strict";
+function IsFiniteNumber(num) {
+    return typeof num == "number" && isFinite(num);
+}
 
-function FindMinIndex(_arr)
-{
-    let _min = _arr[0];
-    for(let i = 0; i<_arr.length;i++)
-    {
-        if(_min> _arr[i])
-        {_min= _arr[i]}
+function FindMinIndex(arr) {
+    if(Array.isArray(arr) && arr.length !== 0) {
+        if (arr.every(IsFiniteNumber)) {
+            let min = arr[0];
+            for (let i = 0; i < arr.length; i++) {
+                if (min > arr[i]) {
+                    min = arr[i]
+                }
+            }
+            return arr.indexOf(min);
+        }
     }
-    console.log(_arr.indexOf(_min))
+    return null;
 }

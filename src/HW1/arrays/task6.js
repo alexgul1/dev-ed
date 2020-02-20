@@ -1,12 +1,17 @@
-let _arr = [5,10,654,-45,3,98,-568,12,-56];
-Reverse(_arr);
+"use strict";
+function IsFiniteNumber(num) {
+    return typeof num == "number" && isFinite(num);
+}
 
-function Reverse (_arr)
-{
-    let _reversearr = [];
-    for (let i = _arr.length-1; i>= 0;i--)
-    {
-        _reversearr.push(_arr[i])
+function Reverse (arr) {
+    if(Array.isArray(arr) && arr.length !== 0) {
+        if (arr.every(IsFiniteNumber)) {
+            let reversearr = [];
+            for (let i = arr.length - 1; i >= 0; i--) {
+                reversearr.push(arr[i])
+            }
+            return reversearr;
+        }
     }
-    console.log(_reversearr)
+    return null;
 }

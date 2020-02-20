@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- подключаем стили Mocha, для отображения результатов -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css">
+    <!-- подключаем библиотеку Mocha -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
+    <!-- настраиваем Mocha: предстоит BDD-тестирование -->
+    <script>
+        mocha.setup('bdd');
+    </script>
+
+    <!-- подключаем chai -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
+    <!-- в chai есть много всего, выносим assert в глобальную область -->
+    <script>
+        var assert = chai.assert;
+    </script>
+    <script src="task1.js"></script>
+    <script src="task2-5.js"></script>
+    <script src="task3-6.js"></script>
+    <script src="task4.js"></script>
+</head>
+<body>
+<!-- в элементе с id="mocha" будут результаты тестов -->
+<div id="mocha"></div>
+<!-- запустить тесты! -->
+<script>
+    // task1
+    describe('DayOfWeek', function () {
+        it('передаем 2', function () {
+            assert.equal(DayOfWeek(2), "Вторник")
+        });
+        it('передаем NaN', function () {
+            assert.equal(DayOfWeek(NaN), null)
+        });
+        it('передаем Infinity', function () {
+            assert.equal(DayOfWeek(Infinity), null)
+        });
+        it('передаем "5"', function () {
+            assert.equal(DayOfWeek("5"), null)
+        });
+    });
+
+    //task2-5
+    describe('NumToString', function () {
+        it('передаем 90156589', function () {
+            assert.equal(NumToString(90156589),'ninety million one hundred fifty six thousand five hundred eighty nine ')
+        });
+        it('передаем -50', function () {
+            assert.equal(NumToString(-50),null)
+        });
+        it('передаем "90156589"', function () {
+            assert.equal(NumToString("90156589"),null)
+        });
+        it('передаем null', function () {
+            assert.equal(NumToString(null),null)
+        });
+        it('передаем NaN', function () {
+            assert.equal(NumToString(NaN),null)
+        });
+    });
+
+    //task 3-6
+    describe('StringToNum', function () {
+        it('передаем "ninety million one hundred fifty six thousand five hundred eighty nine"', function () {
+            assert.equal(StringToNum('ninety million one hundred fifty six thousand five hundred eighty nine'),90156589)
+        });
+        it('передаем "klfg"', function () {
+            assert.equal(StringToNum('kjfg'),0)
+        });
+
+    });
+    //task4
+    describe('Distance', function () {
+        it('передаем x1 = 4, y1 = 3, x2 = 0, y2 = 0', function () {
+            assert.equal(Distance(4,3,0,0), 5);
+        });
+        it('передаем x1 = "", y1 = 3, x2 = 0, y2 = 0', function () {
+            assert.equal(Distance("",3,0,0), null);
+        });
+        it('передаем x1 = 2', function () {
+            assert.equal(Distance(2), null);
+        });
+    });
+</script>
+<script>
+    mocha.run();
+</script>
+</body>
+</html>

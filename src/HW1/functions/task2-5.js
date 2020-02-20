@@ -1,60 +1,55 @@
-let _numto19 = ["one " , "two ", "three " , "four ", "five ", "six ", "seven ", "eight ", "nine ", "ten ", "eleven ",
+let numto19 = ["one " , "two ", "three " , "four ", "five ", "six ", "seven ", "eight ", "nine ", "ten ", "eleven ",
 "twelve ", "thirteen ","fourteen ","fifteen ","sixteen ","seventeen ","eighteen ","nineteen "];
-let _tens = [ "twenty ", "thirty ", "forty ", "fifty ", "sixty ", "seventy ", "eighty ", "ninety "];
-let _size = ["hundred ", "thousand ", "million ", "billion "];
+let tens = [ "twenty ", "thirty ", "forty ", "fifty ", "sixty ", "seventy ", "eighty ", "ninety "];
+let size = ["hundred ", "thousand ", "million ", "billion "];
 
-let _num = 90156589;
-console.log(NumToString(_num));
 
 function NumToString(num)
 {
-    
-    let _strnum = "";
-    let _div; let _mod = num;
+    if(typeof num == "number" && isFinite(num) && num > 0 && Number.isInteger(num)) {
 
-    for(let i = 1000000000; i >= 1; i /= 1000)
-    {
-        
-        _div = Math.floor( _mod / i);
+        let strnum = "";
+        let div;
+        let mod = num;
 
-        if(_div == 0)
-        { continue; }
-        else
-        {
-            if(_div >= 100)
-            {
-                _strnum +=  _numto19[parseInt(_div / 100) - 1];
-                _strnum +=_size[0];
-                _div %=100;
-            }
-            if(_div >= 20)
-            {
-                _strnum +=_tens[parseInt(_div / 10) - 2];
-                if(_div % 10 != 0)
-                {
-                    _strnum +=_numto19[parseInt(_div % 10) -1];
+        for (let i = 1000000000; i >= 1; i /= 1000) {
+
+            div = Math.floor(mod / i);
+
+            if (div === 0) {
+                continue;
+            } else {
+                if (div >= 100) {
+                    strnum += numto19[parseInt(div / 100) - 1];
+                    strnum += size[0];
+                    div %= 100;
+                }
+                if (div >= 20) {
+                    strnum += tens[parseInt(div / 10) - 2];
+                    if (div % 10 !== 0) {
+                        strnum += numto19[parseInt(div % 10) - 1];
+                    }
+                } else if (div <= 19 && div !== 0) {
+                    strnum += numto19[div - 1];
                 }
             }
-            else if(_div <= 19 & _div != 0)
-            {
-                _strnum += _numto19[_div - 1];
-            }
+            mod %= i;
+
+            strnum += SizeNum(i)
         }
-        _mod %= i;
-        
-        _strnum +=SizeNum(i)
+        return strnum;
     }
-    return _strnum;
+    return null;
 }
 
 function SizeNum(length)
 {
     if(length == 1000000000)
-    {return _size[3];}
+    {return size[3];}
     if(length == 1000000)
-    {return _size[2];}
+    {return size[2];}
     if(length == 1000)
-    {return _size[1];}
+    {return size[1];}
     else 
         return "";
 }

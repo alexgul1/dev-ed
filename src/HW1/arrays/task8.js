@@ -1,13 +1,18 @@
-let _arr = [5,10,654,11,-45,3,98,-568,12,-56];
-Swap(_arr)
+"use strict";
+function IsFiniteNumber(num) {
+    return typeof num == "number" && isFinite(num);
+}
 
-function Swap(_arr)
-{
-    for(let i = 0; i< _arr.length/2; i++)
-    {
-        let _temp = _arr[i];
-        _arr[i] = _arr[_arr.length/2+i]
-        _arr[_arr.length/2+i]= _temp;
+function Swap(arr) {
+    if(Array.isArray(arr) && arr.length !== 0) {
+        if (arr.every(IsFiniteNumber)) {
+            for (let i = 0; i < arr.length / 2; i++) {
+                let _temp = arr[i];
+                arr[i] = arr[arr.length / 2 + i];
+                arr[arr.length / 2 + i] = _temp;
+            }
+            return arr;
+        }
     }
-    console.log(_arr)
+    return null;
 }

@@ -1,12 +1,16 @@
-let _num = 13574;
-Flip(_num)
-function Flip (_num)
+"use strict";
+function FlipNum (num)
 {
-    let _s = _num.toString();
-    let _flip = "";
-    for(let i = _s.length-1;i>=0;i--)
-    {
-        _flip += _s[i];
+    if (typeof num == "number" && isFinite(num)) {
+        let s = num.toString();
+        let flip = "";
+        if(s[0] === '-') {
+            flip += '-';
+        }
+        for (let i = s.length - 1; i >= 0; i--) {
+            flip += s[i];
+        }
+        return parseInt(flip);
     }
-    console.log(parseInt(_flip))
+    return null;
 }

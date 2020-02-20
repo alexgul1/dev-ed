@@ -1,13 +1,19 @@
-let _arr = [5,10,654,-45,3,98,-568,12,-56];
-FindMaxIndex(_arr)
+"use strict";
+function IsFiniteNumber(num) {
+    return typeof num == "number" && isFinite(num);
+}
 
-function FindMaxIndex(_arr)
-{
-    let _max = _arr[0];
-    for(let i = 0; i<_arr.length;i++)
-    {
-        if(_max < _arr[i])
-        {_max= _arr[i]}
+function FindMaxIndex(arr) {
+    if(Array.isArray(arr) && arr.length !== 0) {
+        if (arr.every(IsFiniteNumber)) {
+            let max = arr[0];
+            for (let i = 0; i < arr.length; i++) {
+                if (max < arr[i]) {
+                    max = arr[i]
+                }
+            }
+            return arr.indexOf(max);
+        }
     }
-    console.log(_arr.indexOf(_max));
+    return null;
 }
