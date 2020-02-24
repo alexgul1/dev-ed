@@ -1,6 +1,6 @@
 "use strict";
 
-function IsPrimeNumber(num) {
+function isPrimeNumber(num) {
     if(typeof num == "number" && isFinite(num) && num > 0) {
         let test = false;
         for (let i = 2; i <= num; i++) {

@@ -1,5 +1,5 @@
 "use strict";
-function SumOfDigits (num) {
+function sumOfDigits (num) {
     if(typeof num == "number" && isFinite(num)) {
         let sum = 0;
         let n = num.toString();

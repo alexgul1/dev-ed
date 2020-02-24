@@ -1,11 +1,11 @@
 "use strict";
-function IsFiniteNumber(num) {
+function isFiniteNumber(num) {
     return typeof num == "number" && isFinite(num);
 }
 
-function SumOfUnpair(arr) {
+function sumOfUnpair(arr) {
     if(Array.isArray(arr) && arr.length !== 0) {
-        if (arr.every(IsFiniteNumber)) {
+        if (arr.every(isFiniteNumber)) {
             let sum = 0;
             for (let i = 0; i < arr.length; i++) {
                 if (i % 2 === 1) {

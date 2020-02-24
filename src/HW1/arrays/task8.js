@@ -1,11 +1,11 @@
 "use strict";
-function IsFiniteNumber(num) {
+function isFiniteNumber(num) {
     return typeof num == "number" && isFinite(num);
 }
 
-function Swap(arr) {
+function swap(arr) {
     if(Array.isArray(arr) && arr.length !== 0) {
-        if (arr.every(IsFiniteNumber)) {
+        if (arr.every(isFiniteNumber)) {
             for (let i = 0; i < arr.length / 2; i++) {
                 let _temp = arr[i];
                 arr[i] = arr[arr.length / 2 + i];

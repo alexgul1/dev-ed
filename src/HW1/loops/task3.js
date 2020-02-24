@@ -1,5 +1,5 @@
 "use strict";
-function SquareRoot(root) {
+function squareRoot(root) {
     if(typeof root == "number" && isFinite(root) && root > 0) {
         for (let i = 1; ; i++) {
             if (root === i * i) {
@@ -13,7 +13,7 @@ function SquareRoot(root) {
     return null;
 }
 
-function SquareRootBinary(root) {
+function squareRootBinary(root) {
     if(typeof root == "number" && isFinite(root) && root > 0) {
         let left = 1;
         let right = root;

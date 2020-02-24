@@ -4,7 +4,7 @@ let tens = [ "twenty ", "thirty ", "forty ", "fifty ", "sixty ", "seventy ", "ei
 let size = ["hundred ", "thousand ", "million ", "billion "];
 
 
-function NumToString(num)
+function numToString(num)
 {
     if(typeof num == "number" && isFinite(num) && num > 0 && Number.isInteger(num)) {
 
@@ -35,20 +35,20 @@ function NumToString(num)
             }
             mod %= i;
 
-            strnum += SizeNum(i)
+            strnum += sizeNum(i)
         }
         return strnum;
     }
     return null;
 }
 
-function SizeNum(length)
+function sizeNum(length)
 {
-    if(length == 1000000000)
+    if(length === 1000000000)
     {return size[3];}
-    if(length == 1000000)
+    if(length === 1000000)
     {return size[2];}
-    if(length == 1000)
+    if(length === 1000)
     {return size[1];}
     else 
         return "";

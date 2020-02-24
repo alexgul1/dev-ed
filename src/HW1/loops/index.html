@@ -35,124 +35,124 @@
     // task1
     describe('HundredPairNumbers', function () {
         it('Жду результат', function () {
-            assert.equal(HundredPairNumbers(),"Сумма 2450 Количество 49");
+            assert.equal(hundredPairNumbers(),"Сумма 2450 Количество 49");
         });
     });
     
     // task2
     describe('IsPrimeNumber', function () {
         it('передаем number = 5', function () {
-            assert.equal(IsPrimeNumber(5), "Число простое");
+            assert.equal(isPrimeNumber(5), "Число простое");
         });
         it('передаем number = 4', function () {
-            assert.equal(IsPrimeNumber(4), "Число не простое");
+            assert.equal(isPrimeNumber(4), "Число не простое");
         });
         it('передаем number = -20', function () {
-            assert.equal(IsPrimeNumber(-20), null);
+            assert.equal(isPrimeNumber(-20), null);
         });
         it('передаем number = NaN', function () {
-            assert.equal(IsPrimeNumber(NaN), null);
+            assert.equal(isPrimeNumber(NaN), null);
         });
         it('передаем number = Infinity', function () {
-            assert.equal(IsPrimeNumber(Infinity), null);
+            assert.equal(isPrimeNumber(Infinity), null);
         });
         it('передаем number = undefined', function () {
-            assert.equal(IsPrimeNumber(undefined), null);
+            assert.equal(isPrimeNumber(undefined), null);
         });
     });
 
     //task3.1
     describe('SquareRoot', function () {
         it('передаем 200', function () {
-            assert.equal(SquareRoot(200), 15)
+            assert.equal(squareRoot(200), 15)
         });
         it('передаем 392', function () {
-            assert.equal(SquareRoot(392), 20)
+            assert.equal(squareRoot(392), 20)
         });
         it('передаем 121', function () {
-            assert.equal(SquareRoot(121), 11);
+            assert.equal(squareRoot(121), 11);
         });
         it('передаем -5', function () {
-            assert.equal(SquareRoot(-5), null);
+            assert.equal(squareRoot(-5), null);
         });
         it('передаем Infinity', function () {
-            assert.equal(SquareRoot(Infinity), null);
+            assert.equal(squareRoot(Infinity), null);
         });
         it('передаем NaN', function () {
-            assert.equal(SquareRoot(NaN), null);
+            assert.equal(squareRoot(NaN), null);
         });
     });
 
     // task3.2
     describe('SquareRootBinary', function () {
         it('передаем 200', function () {
-            assert.equal(SquareRootBinary(200), 15)
+            assert.equal(squareRootBinary(200), 15)
         });
         it('передаем 392', function () {
-            assert.equal(SquareRootBinary(392), 20)
+            assert.equal(squareRootBinary(392), 20)
         });
         it('передаем 121', function () {
-            assert.equal(SquareRootBinary(121), 11);
+            assert.equal(squareRootBinary(121), 11);
         });
         it('передаем -5', function () {
-            assert.equal(SquareRootBinary(-5), null);
+            assert.equal(squareRootBinary(-5), null);
         });
         it('передаем Infinity', function () {
-            assert.equal(SquareRootBinary(Infinity), null);
+            assert.equal(squareRootBinary(Infinity), null);
         });
         it('передаем NaN', function () {
-            assert.equal(SquareRootBinary(NaN), null);
+            assert.equal(squareRootBinary(NaN), null);
         });
     });
 
     // task4
     describe('SquareRootBinary', function () {
         it('передаем 6', function () {
-            assert.equal(Factorial(6), 720)
+            assert.equal(factorial(6), 720)
         });
         it('передаем -5', function () {
-            assert.equal(Factorial(-5), null);
+            assert.equal(factorial(-5), null);
         });
         it('передаем Infinity', function () {
-            assert.equal(Factorial(Infinity), null);
+            assert.equal(factorial(Infinity), null);
         });
         it('передаем NaN', function () {
-            assert.equal(Factorial(NaN), null);
+            assert.equal(factorial(NaN), null);
         });
     });
 
     // task5
     describe('SumOfDigits', function () {
         it('передаем 123456', function () {
-            assert.equal(SumOfDigits(123456), 21)
+            assert.equal(sumOfDigits(123456), 21)
         });
         it('передаем -23123456', function () {
-            assert.equal(SumOfDigits(-23123456), 26)
+            assert.equal(sumOfDigits(-23123456), 26)
         });
         it('передаем Infinity', function () {
-            assert.equal(SumOfDigits(Infinity), null);
+            assert.equal(sumOfDigits(Infinity), null);
         });
         it('передаем NaN', function () {
-            assert.equal(SumOfDigits(NaN), null);
+            assert.equal(sumOfDigits(NaN), null);
         });
     });
 
     // task6
     describe('FlipNum', function () {
         it('передаем 46583', function () {
-            assert.equal(FlipNum(46583), 38564);
+            assert.equal(flipNum(46583), 38564);
         });
         it('передаем -2546489', function () {
-            assert.equal(FlipNum(-2546489), -9846452);
+            assert.equal(flipNum(-2546489), -9846452);
         });
         it('передаем null', function () {
-            assert.equal(FlipNum(null), null);
+            assert.equal(flipNum(null), null);
         });
         it('передаем 0', function () {
-            assert.equal(FlipNum(0), 0);
+            assert.equal(flipNum(0), 0);
         });
         it('передаем undefined', function () {
-            assert.equal(FlipNum(undefined),null)
+            assert.equal(flipNum(undefined),null)
         });
     });
 </script>

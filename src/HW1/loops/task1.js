@@ -1,6 +1,6 @@
 "use strict";
 
-function HundredPairNumbers() {
+function hundredPairNumbers() {
     let sum = 0;
     let count = 0;
     for (let i = 2; i<=99; i+=2) {
