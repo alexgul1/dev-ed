@@ -1,6 +1,6 @@
 "use strict";
 
-function QuarterOfPoint(x, y) {
+function quarterOfPoint(x, y) {
     if(typeof x == "number" && typeof y == "number" && isFinite(x) && isFinite(y)) {
         if (x === 0 && y === 0) {
             return "Точка лежит в центре координат";

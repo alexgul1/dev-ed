@@ -1,6 +1,6 @@
 "use strict";
 
-function SumOfPositive(a, b, c){
+function sumOfPositive(a, b, c){
     if(typeof a == "number" && typeof b == "number" && typeof c == "number" && isFinite(a) && isFinite(b) && isFinite(c)) {
         let sum = 0;
         if (a > 0) {

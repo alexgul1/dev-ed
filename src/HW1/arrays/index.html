@@ -39,209 +39,209 @@
     // task1
     describe('FindMin', function () {
         it('передаем [5,10,654,-45,3,98,-568,12,-56]', function () {
-            assert.equal(FindMin([5,10,654,-45,3,98,-568,12,-56]), -568)
+            assert.equal(findMin([5,10,654,-45,3,98,-568,12,-56]), -568)
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(FindMin([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(findMin([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(FindMin([]), null)
+            assert.equal(findMin([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(FindMin(1564), null)
+            assert.equal(findMin(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(FindMin({}), null)
+            assert.equal(findMin({}), null)
         });
     });
 
     //task2
     describe('FindMax', function () {
         it('передаем [5,10,654,-45,3,98,-568,12,-56]', function () {
-            assert.equal(FindMax([5,10,654,-45,3,98,-568,12,-56]), 654)
+            assert.equal(findMax([5,10,654,-45,3,98,-568,12,-56]), 654)
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(FindMax([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(findMax([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(FindMax([]), null)
+            assert.equal(findMax([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(FindMax(1564), null)
+            assert.equal(findMax(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(FindMax({}), null)
+            assert.equal(findMax({}), null)
         });
     });
 
     //task3
     describe('FindMinIndex', function () {
         it('передаем [5,10,654,-45,3,98,-568,12,-56]', function () {
-            assert.equal(FindMinIndex([5,10,654,-45,3,98,-568,12,-56]), 6)
+            assert.equal(findMinIndex([5,10,654,-45,3,98,-568,12,-56]), 6)
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(FindMinIndex([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(findMinIndex([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(FindMinIndex([]), null)
+            assert.equal(findMinIndex([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(FindMinIndex(1564), null)
+            assert.equal(findMinIndex(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(FindMinIndex({}), null)
+            assert.equal(findMinIndex({}), null)
         });
     });
 
     //task4
     describe('FindMaxIndex', function () {
         it('передаем [5,10,654,-45,3,98,-568,12,-56]', function () {
-            assert.equal(FindMaxIndex([5,10,654,-45,3,98,-568,12,-56]), 2)
+            assert.equal(findMaxIndex([5,10,654,-45,3,98,-568,12,-56]), 2)
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(FindMaxIndex([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(findMaxIndex([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(FindMaxIndex([]), null)
+            assert.equal(findMaxIndex([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(FindMaxIndex(1564), null)
+            assert.equal(findMaxIndex(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(FindMaxIndex({}), null)
+            assert.equal(findMaxIndex({}), null)
         });
     });
 
     //task5
     describe('SumOfUnpair', function () {
         it('передаем [5,10,654,-45,3,98,-568,12,-56]', function () {
-            assert.equal(SumOfUnpair([5,10,654,-45,3,98,-568,12,-56]), 75)
+            assert.equal(sumOfUnpair([5,10,654,-45,3,98,-568,12,-56]), 75)
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(SumOfUnpair([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(sumOfUnpair([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(SumOfUnpair([]), null)
+            assert.equal(sumOfUnpair([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(SumOfUnpair(1564), null)
+            assert.equal(sumOfUnpair(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(SumOfUnpair({}), null)
+            assert.equal(sumOfUnpair({}), null)
         });
     });
 
     //task6 //WRONG
     describe('Reverse', function () {
         it('передаем [98,-568,12,-56]', function () {
-            assert.deepEqual(Reverse([98, -568, 12, -56]), [-56, 12, -568, 98])
+            assert.deepEqual(reverse([98, -568, 12, -56]), [-56, 12, -568, 98])
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(Reverse([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(reverse([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(Reverse([]), null)
+            assert.equal(reverse([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(Reverse(1564), null)
+            assert.equal(reverse(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(Reverse({}), null)
+            assert.equal(reverse({}), null)
         });
     });
 
     //task7
     describe('CountUnpairNumbers', function () {
         it('передаем [5,10,654,-45,3,98,-568,12,-56]', function () {
-            assert.equal(CountUnpairNumbers([5,10,654,-45,3,98,-568,12,-56]), 3)
+            assert.equal(countUnpairNumbers([5,10,654,-45,3,98,-568,12,-56]), 3)
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(CountUnpairNumbers([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(countUnpairNumbers([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(CountUnpairNumbers([]), null)
+            assert.equal(countUnpairNumbers([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(CountUnpairNumbers(1564), null)
+            assert.equal(countUnpairNumbers(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(CountUnpairNumbers({}), null)
+            assert.equal(countUnpairNumbers({}), null)
         });
     });
 
     //task8
     describe('Swap', function () {
         it('передаем [5,10,654,-45]', function () {
-            assert.deepEqual(Swap([5,10,654,-45]), [654, -45, 5, 10])
+            assert.deepEqual(swap([5,10,654,-45]), [654, -45, 5, 10])
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(Swap([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(swap([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(Swap([]), null)
+            assert.equal(swap([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(Swap(1564), null)
+            assert.equal(swap(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(Swap({}), null)
+            assert.equal(swap({}), null)
         });
     });
 
     //bubble
     describe('BubbleSort', function () {
         it('передаем [5,10,654,-45]', function () {
-            assert.deepEqual(BubbleSort([5,10,654,-45]), [-45, 5, 10 ,654])
+            assert.deepEqual(bubbleSort([5,10,654,-45]), [-45, 5, 10 ,654])
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(BubbleSort([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(bubbleSort([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(BubbleSort([]), null)
+            assert.equal(bubbleSort([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(BubbleSort(1564), null)
+            assert.equal(bubbleSort(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(BubbleSort({}), null)
+            assert.equal(bubbleSort({}), null)
         });
     });
 
     //insert
     describe('InsertSort', function () {
         it('передаем [5,10,654,-45]', function () {
-            assert.deepEqual(InsertSort([5,10,654,-45]), [-45, 5, 10 ,654])
+            assert.deepEqual(insertSort([5,10,654,-45]), [-45, 5, 10 ,654])
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(InsertSort([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(insertSort([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(InsertSort([]), null)
+            assert.equal(insertSort([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(InsertSort(1564), null)
+            assert.equal(insertSort(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(InsertSort({}), null)
+            assert.equal(insertSort({}), null)
         });
     });
 
     //select
     describe('SelectSort', function () {
         it('передаем [5,10,654,-45]', function () {
-            assert.deepEqual(SelectSort([5,10,654,-45]), [-45, 5, 10 ,654])
+            assert.deepEqual(selectSort([5,10,654,-45]), [-45, 5, 10 ,654])
         });
         it('передаем [5,10,654,"some string",3,98,-568,12,-56]', function () {
-            assert.equal(SelectSort([5,10,654,"some string",3,98,-568,12,-56]),null)
+            assert.equal(selectSort([5,10,654,"some string",3,98,-568,12,-56]),null)
         });
         it('передаем []', function () {
-            assert.equal(SelectSort([]), null)
+            assert.equal(selectSort([]), null)
         });
         it('передаем 1564', function () {
-            assert.equal(SelectSort(1564), null)
+            assert.equal(selectSort(1564), null)
         });
         it('передаем {}', function () {
-            assert.equal(SelectSort({}), null)
+            assert.equal(selectSort({}), null)
         });
     });
 </script>

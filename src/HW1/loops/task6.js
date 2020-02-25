@@ -1,5 +1,5 @@
 "use strict";
-function FlipNum (num)
+function flipNum (num)
 {
     if (typeof num == "number" && isFinite(num)) {
         let s = num.toString();

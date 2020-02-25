@@ -1,6 +1,6 @@
 "use strict";
 
-function DayOfWeek(day)
+function dayOfWeek(day)
 {
     switch(day){
         case 1:

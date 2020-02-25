@@ -1,12 +1,12 @@
 "use strict";
-function IsFiniteNumber(num) {
+function isFiniteNumber(num) {
     return typeof num == "number" && isFinite(num);
 }
 
-function CountUnpairNumbers(arr)
+function countUnpairNumbers(arr)
 {
     if(Array.isArray(arr) && arr.length !== 0) {
-        if (arr.every(IsFiniteNumber)) {
+        if (arr.every(isFiniteNumber)) {
             let count = 0;
             for (let i of arr) {
                 if (Math.abs(i) % 2 === 1) {

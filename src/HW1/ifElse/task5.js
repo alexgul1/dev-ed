@@ -1,5 +1,5 @@
 "use strict";
-function YourMark(mark) {
+function yourMark(mark) {
     if(typeof mark == "number" && isFinite(mark)) {
         if (mark >= 0 && mark <= 19) {
             return "F";

@@ -21,8 +21,8 @@
     </script>
     <script src="task1.js"></script>
     <script src="task2-5.js"></script>
-    <script src="task3-6.js"></script>
     <script src="task4.js"></script>
+    <script src="task3-6.js"></script>
 </head>
 <body>
 <!-- в элементе с id="mocha" будут результаты тестов -->
@@ -32,58 +32,65 @@
     // task1
     describe('DayOfWeek', function () {
         it('передаем 2', function () {
-            assert.equal(DayOfWeek(2), "Вторник")
+            assert.equal(dayOfWeek(2), "Вторник")
         });
         it('передаем NaN', function () {
-            assert.equal(DayOfWeek(NaN), null)
+            assert.equal(dayOfWeek(NaN), null)
         });
         it('передаем Infinity', function () {
-            assert.equal(DayOfWeek(Infinity), null)
+            assert.equal(dayOfWeek(Infinity), null)
         });
         it('передаем "5"', function () {
-            assert.equal(DayOfWeek("5"), null)
+            assert.equal(dayOfWeek("5"), null)
         });
     });
 
     //task2-5
     describe('NumToString', function () {
         it('передаем 90156589', function () {
-            assert.equal(NumToString(90156589),'ninety million one hundred fifty six thousand five hundred eighty nine ')
+            assert.equal(numToString(90156589),'ninety million one hundred fifty six thousand five hundred eighty nine ')
         });
         it('передаем -50', function () {
-            assert.equal(NumToString(-50),null)
+            assert.equal(numToString(-50),null)
         });
         it('передаем "90156589"', function () {
-            assert.equal(NumToString("90156589"),null)
+            assert.equal(numToString("90156589"),null)
         });
         it('передаем null', function () {
-            assert.equal(NumToString(null),null)
+            assert.equal(numToString(null),null)
         });
         it('передаем NaN', function () {
-            assert.equal(NumToString(NaN),null)
+            assert.equal(numToString(NaN),null)
         });
     });
 
     //task 3-6
     describe('StringToNum', function () {
         it('передаем "ninety million one hundred fifty six thousand five hundred eighty nine"', function () {
-            assert.equal(StringToNum('ninety million one hundred fifty six thousand five hundred eighty nine'),90156589)
+            assert.equal(stringToNum('ninety million one hundred fifty six thousand five hundred eighty nine'),90156589)
         });
-        it('передаем "klfg"', function () {
-            assert.equal(StringToNum('kjfg'),0)
+        it('передаем "one"', function () {
+            assert.equal(stringToNum('one'), 1)
         });
-
+        it('передаем "kfsg"', function () {
+            assert.equal(stringToNum('kfsg'), 0)
+        });
     });
+
+
+
+
+
     //task4
     describe('Distance', function () {
         it('передаем x1 = 4, y1 = 3, x2 = 0, y2 = 0', function () {
-            assert.equal(Distance(4,3,0,0), 5);
+            assert.equal(distance(4,3,0,0), 5);
         });
         it('передаем x1 = "", y1 = 3, x2 = 0, y2 = 0', function () {
-            assert.equal(Distance("",3,0,0), null);
+            assert.equal(distance("",3,0,0), null);
         });
         it('передаем x1 = 2', function () {
-            assert.equal(Distance(2), null);
+            assert.equal(distance(2), null);
         });
     });
 </script>

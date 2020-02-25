@@ -1,11 +1,11 @@
 "use strict";
-function IsFiniteNumber(num) {
+function isFiniteNumber(num) {
     return typeof num == "number" && isFinite(num);
 }
 
-function SelectSort(arr) {
+function selectSort(arr) {
     if(Array.isArray(arr) && arr.length !== 0) {
-        if (arr.every(IsFiniteNumber)) {
+        if (arr.every(isFiniteNumber)) {
             for (let i = 0; i < arr.length; i++) {
                 let min = i;
                 for (let j = i + 1; j < arr.length; j++) {
