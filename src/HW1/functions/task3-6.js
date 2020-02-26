@@ -5,8 +5,6 @@ let _size = ["","thousand", "million", "billion"];
 
 let _strnum = "ninety million one hundred fifty six thousand five hundred eighty nine";
 
-console.log(StringToNum(_strnum));
-
 function isNullOrEmpty(theString)
 {
     return theString == null || typeof theString != "string" || theString.trim().length < 1;
