@@ -59,6 +59,10 @@ input.viewbox{
     border-bottom-left-radius: 10px;
 }
 
+.clear {
+    grid-column: 1/4;
+}
+
 div:hover {
     color: black;
 }
