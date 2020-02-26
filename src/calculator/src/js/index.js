@@ -19,31 +19,31 @@ let cropDisplay = function () {
 
 let numberClick = function (event) {
 
-        if (waiting) {
-            display = "";
-            winDisplay.value = display;
-        }
-        display += event.target.value;
-        console.log(event.target);
-        cropDisplay();
+    if (waiting) {
+        display = "";
         winDisplay.value = display;
-        waiting = false;
+    }
+    display += event.target.value;
+    console.log(event.target);
+    cropDisplay();
+    winDisplay.value = display;
+    waiting = false;
 
 };
 
 let operationClick = function (event) {
-        if (firstNum === undefined) {
-            firstNum = parseFloat(display);
-            console.log('first', firstNum)
-        } else {
-            secondNum = parseFloat(display);
-        }
-        if (isFinite(secondNum)) {
-            firstNum = operationFunct(firstNum, secondNum, operation);
-        }
-        operation = event.target.value;
-        waiting = true;
-        winDisplay.value = firstNum;
+    if (firstNum === undefined) {
+        firstNum = parseFloat(display);
+        console.log('first', firstNum)
+    } else {
+        secondNum = parseFloat(display);
+    }
+    if (isFinite(secondNum)) {
+        firstNum = operationFunct(firstNum, secondNum, operation);
+    }
+    operation = event.target.value;
+    waiting = true;
+    winDisplay.value = firstNum;
 };
 
 let clearClick = function () {
@@ -56,20 +56,20 @@ let clearClick = function () {
 };
 
 let operationFunct = function (firstNum,secondNum,operation) {
-        if (!!operation && isFinite(firstNum) && isFinite(secondNum)) {
-            switch (operation) {
-                case "+":
-                    return firstNum + secondNum;
-                case "-":
-                    return firstNum - secondNum;
-                case "/":
-                    return firstNum / secondNum;
-                case "*":
-                    return firstNum * secondNum;
-                case "=":
-                    return firstNum;
-            }
+    if (!!operation && isFinite(firstNum) && isFinite(secondNum)) {
+        switch (operation) {
+            case "+":
+                return firstNum + secondNum;
+            case "-":
+                return firstNum - secondNum;
+            case "/":
+                return firstNum / secondNum;
+            case "*":
+                return firstNum * secondNum;
+            case "=":
+                return firstNum;
         }
+    }
 
 };
 
@@ -91,7 +91,3 @@ for (let i = 0; i < actions.length; i++) {
 clear.addEventListener('click',clearClick);
 
 point.addEventListener('click', pointClick);
-
-
-
-
