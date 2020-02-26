@@ -19,7 +19,7 @@
     <script>
         var assert = chai.assert;
     </script>
-   <script src="script.js"></script>
+   <script src="aList_script.js"></script>
 </head>
 <body>
 <!-- в элементе с id="mocha" будут результаты тестов -->
@@ -31,6 +31,7 @@
 <script>
     describe('AList Methods ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])', function () {
         describe('size()', function () {
+            debugger;
             let aList = new AList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
             it('получаем длину массива', function () {
                 assert.equal(aList.size(), 12)

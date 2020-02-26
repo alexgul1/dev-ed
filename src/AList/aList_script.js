@@ -1,10 +1,15 @@
 "use strict";
 
+const List = require('../list/list_script');
+
 let AList = function (array) {
+    List.apply(this);
     this.defArray = array;
     this.array = [];
     this.init();
 };
+AList.prototype = Object.create(List.prototype);
+AList.prototype.constructor = AList;
 
 AList.prototype.init = function () {
 
@@ -33,7 +38,21 @@ AList.prototype.addStart = function (element) {
 
 AList.prototype.addEnd = function (element) {
     this.array[this.size()] = element;
+};
 
+AList.prototype.addPosition = function(index, element) {
+    let copyArray = [];
+    let j = 0;
+    for(let i = 0; i <= this.size(); i++) {
+        if(i === index) {
+            copyArray[i] = element;
+        }
+        else {
+            copyArray[i] = this.array[j];
+            j++;
+        }
+    }
+    this.array = copyArray;
 };
 
 AList.prototype.delStart = function () {
@@ -80,18 +99,7 @@ AList.prototype.get = function(index) {
 };
 
 AList.prototype.set = function(index, element) {
-  let copyArray = [];
-  let j = 0;
-  for(let i = 0; i < this.size() + 1; i++) {
-      if(i === index) {
-          copyArray[i] = element;
-      }
-      else {
-          copyArray[i] = this.array[j];
-          j++;
-      }
-  }
-  this.array = copyArray;
+    this.array[index] = element;
 };
 
 AList.prototype.toString = function() {
@@ -202,7 +210,9 @@ AList.prototype.halfReverse = function () {
     }
 };
 
-//let aList = new AList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-
-
-
+let aList = new AList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+//let aList = Object.create()
+console.log(aList.size());
+console.log(aList.constructor);
+aList.addPosition(5, 10);
+console.log(aList.array);
