@@ -1,11 +1,15 @@
 "use strict";
 
+const List = require('../list/list_script');
+
 let AList = function (array) {
+    List.apply(this);
     this.defArray = array;
     this.array = [];
     this.init();
-    //this.length = this.array.size()
 };
+AList.prototype = Object.create(List.prototype);
+AList.prototype.constructor = AList;
 
 AList.prototype.init = function () {
 
@@ -29,34 +33,51 @@ AList.prototype.addStart = function (element) {
         this.array[i + 1] = this.array[i]
     }
     this.array[0] = element;
-    return this.array;
+
 };
 
 AList.prototype.addEnd = function (element) {
     this.array[this.size()] = element;
-    return this.array;
+};
+
+AList.prototype.addPosition = function(index, element) {
+    let copyArray = [];
+    let j = 0;
+    for(let i = 0; i <= this.size(); i++) {
+        if(i === index) {
+            copyArray[i] = element;
+        }
+        else {
+            copyArray[i] = this.array[j];
+            j++;
+        }
+    }
+    this.array = copyArray;
 };
 
 AList.prototype.delStart = function () {
     let copyArray = [];
+    let removed = this.array[0];
     for(let i = 1; i < this.size(); i++) {
         copyArray[i - 1] = this.array[i];
     }
     this.array = copyArray;
-    return this.array;
+    return removed;
 };
 
 AList.prototype.delEnd = function () {
   let copyArray = [];
+  let removed = this.array[this.size() - 1];
   for(let i = 0; i < this.size() - 1; i++) {
       copyArray[i] = this.array[i];
   }
   this.array = copyArray;
-  return this.array;
+  return removed;
 };
 
 AList.prototype.delPosition = function (index) {
   let copyArray = [];
+  let removed = this.array[index];
   let j = 0;
   for(let i = 0; i < this.size(); i++) {
       if(i === index) {
@@ -66,7 +87,7 @@ AList.prototype.delPosition = function (index) {
       }
   }
   this.array = copyArray;
-  return this.array;
+  return removed;
 };
 
 AList.prototype.get = function(index) {
@@ -78,30 +99,13 @@ AList.prototype.get = function(index) {
 };
 
 AList.prototype.set = function(index, element) {
-  let copyArray = [];
-  let j = 0;
-  for(let i = 0; i < this.size() + 1; i++) {
-      if(i === index) {
-          copyArray[i] = element;
-      }
-      else {
-          copyArray[i] = this.array[j];
-          j++;
-      }
-  }
-  this.array = copyArray;
-  return this.array;
+    this.array[index] = element;
 };
 
 AList.prototype.toString = function() {
     let toString = "";
     for(let i = 0; i < this.size(); i++) {
-        if(i === 0) {
-            toString += this.array[i];
-        }
-        else {
-            toString += ` ${this.array[i]}`;
-        }
+        toString += `${this.array[i]}`;
     }
     return toString;
 };
@@ -113,6 +117,7 @@ AList.prototype.clear = function () {
         this.array[i] = this.defArray[i];
         i++;
     }
+
 };
 
 AList.prototype.min = function () {
@@ -169,7 +174,6 @@ AList.prototype.sort = function () {
         }
         this.array[j + 1] = key;
     }
-    return this.array;
 };
 
 AList.prototype.reverse = function () {
@@ -178,54 +182,37 @@ AList.prototype.reverse = function () {
         this.array[i] = this.array[this.size() - i - 1];
         this.array[this.size() - i - 1] = temp;
     }
-    return this.array;
 };
 
 AList.prototype.halfReverse = function () {
+    let k = parseInt(this.size() / 4);
+    if(this.size() % 4 === 3 || this.size() % 4 === 2) {
+        for (let i = 0; i < k; i++) {
+            let temp = this.array[i];
+            this.array[i] = this.array[k * 2 - i];
+            this.array[k * 2 - i] = temp;
 
-   return this.array;
+            let temp2 = this.array[this.size() - i - 1];
+            this.array[this.size() - i - 1] = this.array[this.size() - k * 2 - 1 + i];
+            this.array[this.size() - k * 2 - 1 + i] = temp2;
+        }
+    }
+    else {
+        for (let i = 0; i < k; i++) {
+            let temp = this.array[i];
+            this.array[i] = this.array[k * 2 - i - 1];
+            this.array[k * 2 - i - 1 ] = temp;
+
+            let temp2 = this.array[this.size() - i - 1];
+            this.array[this.size() - i - 1] = this.array[this.size() - k * 2 + i];
+            this.array[this.size() - k * 2 + i] = temp2;
+        }
+    }
 };
 
-let aList = new AList([-1, 1, 2, -12, 5, 0, 3, 6, 56, 12, 89]);
-
+let aList = new AList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+//let aList = Object.create()
+console.log(aList.size());
+console.log(aList.constructor);
+aList.addPosition(5, 10);
 console.log(aList.array);
-console.log(aList.size());
-
-/*
-console.log(aList.addStart(4));
-console.log(aList.addStart(4));
-console.log(aList.size());
-
-console.log(aList.addEnd(6));
-console.log(aList.size());
-
-console.log(aList.delStart());
-console.log(aList.size());
-
-console.log(aList.delEnd());
-console.log(aList.size());
-
-console.log(aList.delPosition(2));
-console.log(aList.size());
-
-console.log(aList.get(2));
-
-console.log(aList.set(2, 20));
-*/
-
-//console.log(aList.toString());
-
-//aList.clear();
-/*console.log(aList.array);
-
-console.log(aList.min());
-
-console.log(aList.max());
-
-console.log(aList.minIndex());
-
-console.log(aList.maxIndex());*/
-
-//console.log(aList.sort());
-
-console.log(aList.halfReverse());

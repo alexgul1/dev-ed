@@ -1,5 +1,8 @@
+//localStorage key person_state
+
 let list = document.querySelector('.list');
 const buttonCreate = document.querySelector('.create');
+const buttonRead = document.querySelector('.read');
 const buttonUpdate = document.querySelector('.update');
 const buttonDelete = document.querySelector('.delete');
 const field = document.getElementsByClassName('field');
@@ -75,6 +78,10 @@ let deleteButton = function () {
     clearFields();
 };
 
+let readButton = function () {
+
+};
+
 let clearFields = function () {
     field[0].value = '';
     field[1].value = '';
@@ -105,3 +112,4 @@ let checkDelete = function () {
 buttonCreate.addEventListener('click', createButton);
 buttonUpdate.addEventListener('click',updateButton);
 buttonDelete.addEventListener('click', deleteButton);
+buttonRead.addEventListener('click',readButton);
