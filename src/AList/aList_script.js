@@ -11,6 +11,8 @@ let AList = function (array) {
 AList.prototype = Object.create(List.prototype);
 AList.prototype.constructor = AList;
 
+module.exports = AList;
+
 AList.prototype.init = function () {
 
   let i = 0;
@@ -210,9 +212,3 @@ AList.prototype.halfReverse = function () {
     }
 };
 
-let aList = new AList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
-//let aList = Object.create()
-console.log(aList.size());
-console.log(aList.constructor);
-aList.addPosition(5, 10);
-console.log(aList.array);
