@@ -1,6 +1,6 @@
 "use strict";
 
-let Node = function (val) {
+function Node (val) {
     this.val = val;
     this.next = null;
 };
