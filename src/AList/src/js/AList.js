@@ -1,13 +1,13 @@
 "use strict";
 
-const List = require('../list/list_script');
+const List = require('../../../list/list_script');
 
-let AList = function (array) {
-    List.apply(this);
+function AList (array) {
+    List.apply(this,arguments);
     this.defArray = array;
     this.array = [];
     this.init();
-};
+}
 AList.prototype = Object.create(List.prototype);
 AList.prototype.constructor = AList;
 
@@ -15,11 +15,11 @@ module.exports = AList;
 
 AList.prototype.init = function () {
 
-  let i = 0;
-  while (typeof this.defArray[i] == 'number') {
-      this.array[i] = this.defArray[i];
-      i++;
-  }
+    let i = 0;
+    while (typeof this.defArray[i] == 'number') {
+        this.array[i] = this.defArray[i];
+        i++;
+    }
 };
 
 AList.prototype.size = function () {
@@ -68,28 +68,28 @@ AList.prototype.delStart = function () {
 };
 
 AList.prototype.delEnd = function () {
-  let copyArray = [];
-  let removed = this.array[this.size() - 1];
-  for(let i = 0; i < this.size() - 1; i++) {
-      copyArray[i] = this.array[i];
-  }
-  this.array = copyArray;
-  return removed;
+    let copyArray = [];
+    let removed = this.array[this.size() - 1];
+    for(let i = 0; i < this.size() - 1; i++) {
+        copyArray[i] = this.array[i];
+    }
+    this.array = copyArray;
+    return removed;
 };
 
 AList.prototype.delPosition = function (index) {
-  let copyArray = [];
-  let removed = this.array[index];
-  let j = 0;
-  for(let i = 0; i < this.size(); i++) {
-      if(i === index) {
-      } else {
-          copyArray[j] = this.array[i];
-          j++;
-      }
-  }
-  this.array = copyArray;
-  return removed;
+    let copyArray = [];
+    let removed = this.array[index];
+    let j = 0;
+    for(let i = 0; i < this.size(); i++) {
+        if(i === index) {
+        } else {
+            copyArray[j] = this.array[i];
+            j++;
+        }
+    }
+    this.array = copyArray;
+    return removed;
 };
 
 AList.prototype.get = function(index) {
@@ -119,7 +119,6 @@ AList.prototype.clear = function () {
         this.array[i] = this.defArray[i];
         i++;
     }
-
 };
 
 AList.prototype.min = function () {
@@ -211,4 +210,3 @@ AList.prototype.halfReverse = function () {
         }
     }
 };
-

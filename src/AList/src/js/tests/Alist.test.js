@@ -1,7 +1,6 @@
 "use strict";
 
-let AList = require('../aList_script');
-let assert = require('chai').assert;
+let AList = require('../AList');
 
 describe('AList Methods ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])', function () {
     describe('size()', function () {
@@ -135,6 +134,15 @@ describe('AList Methods ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])', function () 
         it('делим массив пополам, переворачиваем и проверяем массив', function () {
             assert.deepEqual(aList.array, [6, 5, 4, 3, 2, 1, 12, 11, 10, 9, 8, 7])
         })
+
+    });
+    describe('halfReverse()', function () {
+        let aList = new AList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);
+        aList.halfReverse();
+        it('делим массив пополам, переворачиваем и проверяем массив', function () {
+            assert.deepEqual(aList.array, [5, 4, 3, 2, 1, 6, 11, 10, 9, 8, 7])
+        })
+
     });
     describe('clear()', function () {
         let aList = new AList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
