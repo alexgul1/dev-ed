@@ -1,8 +1,7 @@
 "use strict";
 
-let List = function (array) {
-
-};
+function List () {
+}
 
 module.exports = List;
 
@@ -79,9 +78,5 @@ List.prototype.reverse = function () {
 };
 
 List.prototype.halfReverse = function () {
-
-};
-
-List.prototype.toArray = function () {
 
 };
