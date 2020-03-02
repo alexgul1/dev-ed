@@ -91,3 +91,7 @@ for (let i = 0; i < actions.length; i++) {
 clear.addEventListener('click',clearClick);
 
 point.addEventListener('click', pointClick);
+
+
+
+

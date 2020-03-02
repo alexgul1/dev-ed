@@ -216,42 +216,50 @@ LList.prototype.sort = function () {
 };
 
 LList.prototype.reverse = function () {
-    let array = this.toArray();
-    for (let i = 0; i < Math.floor(array.length / 2); i++) {
-        let temp = array[i];
-        array[i] = array[array.length - i - 1];
-        array[array.length - i - 1] = temp;
+    let prev = null;
+    let current = this.root;
+    let next = null;
+    while (current) {
+        next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
     }
-    this.init(array);
+    this.root = prev;
 };
 
 LList.prototype.halfReverse = function () {
-    let array = this.toArray();
-    let k = parseInt(array.length / 4);
-    if(array.length % 4 === 3 || array.length % 4 === 2) {
-        for (let i = 0; i < k; i++) {
-            let temp = array[i];
-            array[i] = array[k * 2 - i];
-            array[k * 2 - i] = temp;
+    let length = this.size();
+    let prev = null;
+    let current = this.root;
+    let next = null;
 
-            let temp2 = array[array.length - i - 1];
-            array[array.length - i - 1] = array[array.length - k * 2 - 1 + i];
-            array[array.length - k * 2 - 1 + i] = temp2
-        }
+    let count = 0;
+    while(count < Math.floor(length / 2) && current) {
+        next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
+        count++;
     }
-    else {
-        for (let i = 0; i < k; i++) {
-            let temp = array[i];
-            array[i] = array[k * 2 - i - 1];
-            array[k * 2 - i - 1] = temp;
-
-            let temp2 = array[array.length - i - 1];
-            array[array.length - i - 1] = array[array.length - k * 2 + i];
-            array[array.length - k * 2 + i] = temp2;
-        }
-        console.log(array);
+    this.root = prev;
+    prev = null;
+    next = null;
+    if(length % 2 === 1) {
+        this.addEnd(current.val);
+        current = current.next;
     }
-    this.init(array);
+    while(count < length && current) {
+        next = current.next;
+        current.next = prev;
+        prev = current;
+        current = next;
+        count++;
+    }
+    while (prev) {
+        this.addEnd(prev.val);
+        prev = prev.next;
+    }
 };
 
 LList.prototype.toArray = function () {
