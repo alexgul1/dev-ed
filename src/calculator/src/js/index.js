@@ -1,5 +1,3 @@
-"use strict";
-
 let firstNum;
 let secondNum;
 let operation = '';
@@ -11,87 +9,78 @@ const actions = document.getElementsByClassName('actions');
 const clear = document.querySelector('.clear');
 const point = document.querySelector('.point');
 
-let cropDisplay = function () {
-    if( display.length >= 11) {
-        display = display.substr(0,11)
+const operationFunct = function(firstNum, secondNum, operation) {
+  if (!!operation && Number.isFinite(firstNum) && Number.isFinite(secondNum)) {
+    switch (operation) {
+      case '+':
+        return firstNum + secondNum;
+      case '-':
+        return firstNum - secondNum;
+      case '/':
+        return firstNum / secondNum;
+      case '*':
+        return firstNum * secondNum;
+      case '=':
+        return firstNum;
     }
+  }
+  return undefined;
 };
 
-let numberClick = function (event) {
-
-    if (waiting) {
-        display = "";
-        winDisplay.value = display;
-    }
-    display += event.target.value;
-    console.log(event.target);
-    cropDisplay();
-    winDisplay.value = display;
-    waiting = false;
-
+const cropDisplay = function() {
+  if (display.length >= 11) {
+    display = display.substr(0, 11);
+  }
 };
 
-let operationClick = function (event) {
-    if (firstNum === undefined) {
-        firstNum = parseFloat(display);
-        console.log('first', firstNum)
-    } else {
-        secondNum = parseFloat(display);
-    }
-    if (isFinite(secondNum)) {
-        firstNum = operationFunct(firstNum, secondNum, operation);
-    }
-    operation = event.target.value;
-    waiting = true;
-    winDisplay.value = firstNum;
-};
-
-let clearClick = function () {
-    firstNum = undefined;
-    secondNum = undefined;
-    operation = '';
+const numberClick = function(event) {
+  if (waiting) {
     display = '';
-    waiting = false;
     winDisplay.value = display;
+  }
+  display += event.target.value;
+  cropDisplay();
+  winDisplay.value = display;
+  waiting = false;
 };
 
-let operationFunct = function (firstNum,secondNum,operation) {
-    if (!!operation && isFinite(firstNum) && isFinite(secondNum)) {
-        switch (operation) {
-            case "+":
-                return firstNum + secondNum;
-            case "-":
-                return firstNum - secondNum;
-            case "/":
-                return firstNum / secondNum;
-            case "*":
-                return firstNum * secondNum;
-            case "=":
-                return firstNum;
-        }
-    }
-
+const operationClick = function(event) {
+  if (firstNum === undefined) {
+    firstNum = parseFloat(display);
+  } else {
+    secondNum = parseFloat(display);
+  }
+  if (Number.isFinite(secondNum)) {
+    firstNum = operationFunct(firstNum, secondNum, operation);
+  }
+  operation = event.target.value;
+  waiting = true;
+  winDisplay.value = firstNum;
 };
 
-let pointClick = function (event) {
-    if(!display.includes(event.target.value)) {
-        display += event.target.value;
-        winDisplay.value = display;
-    }
+const clearClick = function() {
+  firstNum = undefined;
+  secondNum = undefined;
+  operation = '';
+  display = '';
+  waiting = false;
+  winDisplay.value = display;
 };
 
+const pointClick = function(event) {
+  if (!display.includes(event.target.value)) {
+    display += event.target.value;
+    winDisplay.value = display;
+  }
+};
 
-for(let i = 0; i < numbers.length; i++) {
-    numbers[i].addEventListener("click",numberClick)
+for (let i = 0; i < numbers.length; i++) {
+  numbers[i].addEventListener('click', numberClick);
 }
 
 for (let i = 0; i < actions.length; i++) {
-    actions[i].addEventListener('click', operationClick);
+  actions[i].addEventListener('click', operationClick);
 }
-clear.addEventListener('click',clearClick);
+clear.addEventListener('click', clearClick);
 
 point.addEventListener('click', pointClick);
-
-
-
-
