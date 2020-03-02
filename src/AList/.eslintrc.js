@@ -18,6 +18,7 @@ module.exports = {
       benchmark: true,
       expect: true,
       suite: true,
+      assert: true
     },
     rules: {
       'prettier/prettier': [
@@ -52,13 +53,6 @@ module.exports = {
       'no-unused-expressions': 'error',
       'prefer-arrow-callback': 'off',
       'prefer-const': 'warn',
-      'jsx-a11y/href-no-hash': 'off',
-      'jsx-a11y/anchor-is-valid': [
-        'warn',
-        {
-          aspects: ['invalidHref'],
-        },
-      ],
       'no-use-before-define': [
         'error',
         {
