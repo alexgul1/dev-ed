@@ -8,18 +8,26 @@ const field = document.getElementsByClassName('field');
 let checker = false;
 let arrayElements = [];
 
-const updateStorage = function() {
+function updateStorage() {
   localStorage.setItem('person_state', JSON.stringify(arrayElements));
-};
+}
 
-const clearFields = function() {
+function clearFields() {
   for (let i = 0; i < field.length; i++) {
     field[i].value = '';
   }
-};
+}
 
-const checkFields = function() {
-  if (!Number.isFinite(field[0].value) || field[3].value < 0) {
+function checkDelete() {
+  return !(field[1].value !== '' || field[2].value !== '' || field[3].value !== '');
+}
+
+function checkerField(fieldValue) {
+  return fieldValue.trim() !== '';
+}
+
+function checkFields() {
+  if (!Number.isFinite(parseInt(field[0].value, 10)) || field[0].value < 0) {
     return false;
   }
   if (field[1].value === '') {
@@ -28,21 +36,13 @@ const checkFields = function() {
   if (field[2].value === '') {
     return false;
   }
-  if (!Number.isFinite(field[3].value) || field[3].value < 0) {
+  if (!Number.isFinite(parseInt(field[3].value, 10)) || field[3].value < 0) {
     return false;
   }
   return true;
-};
+}
 
-const checkDelete = function() {
-  return !(field[1].value !== '' || field[2].value !== '' || field[3].value !== '');
-};
-
-const checkerField = function(fieldValue) {
-  return fieldValue.trim() !== '';
-};
-
-const refreshTable = function() {
+function refreshTable() {
   list.innerHTML = '';
   for (let i = 0; i < arrayElements.length; i++) {
     const div1 = document.createElement('div');
@@ -59,7 +59,7 @@ const refreshTable = function() {
     list.appendChild(div3);
     list.appendChild(div4);
   }
-};
+}
 
 const createButton = function() {
   for (let i = 0; i < arrayElements.length; i++) {
