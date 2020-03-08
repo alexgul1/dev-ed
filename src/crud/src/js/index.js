@@ -1,17 +1,21 @@
+// html элементы
 const list = document.querySelector('.div_list');
 const buttonCreate = document.querySelector('.create');
 const buttonUpdate = document.querySelector('.update');
 const buttonDelete = document.querySelector('.delete');
 const field = document.getElementsByClassName('field');
 const database = document.getElementsByName('database');
+// переменные для логики
 let divElement = {};
 let checker = false;
 let arrayElements = [];
 
+// localStorage по дефолту
 window.onload = () => {
   database[0].click();
 };
 
+// запуск базы данных
 const request = window.indexedDB.open('MyTest', 2);
 let db;
 request.onsuccess = function() {
@@ -23,6 +27,14 @@ request.onupgradeneeded = function() {
     db.createObjectStore('people', { keyPath: 'id' });
   }
 };
+
+function selectedDB(event) {
+  if (event.target.id === 'localstorage') {
+    readDB();
+  } else if (event.target.id === 'indexeddb') {
+    readDB();
+  }
+}
 
 function readDB() {
   if (database[0].checked) {
@@ -83,22 +95,11 @@ function indexeddbFunctional(action, value) {
   }
 }
 
+// действия при нажатии кнопок
 const createButton = function() {
-  for (let i = 0; i < arrayElements.length; i++) {
-    if (arrayElements[i].id === field[0].value) {
-      checker = true;
-    }
-  }
+  checker = checkerPeople(field[0].value);
   if (!checker && checkFields()) {
-    divElement = {
-      id: field[0].value,
-      firstName: field[1].value,
-      lastName: field[2].value,
-      age: field[3].value,
-      email: field[4].value,
-      phone: field[5].value,
-    };
-    arrayElements.push(divElement);
+    createPerson();
     updateDB('add');
     refreshTable();
     clearFields();
@@ -109,41 +110,24 @@ const createButton = function() {
 };
 
 const updateButton = function() {
-  for (let i = 0; i < arrayElements.length; i++) {
-    if (arrayElements[i].id === field[0].value) {
-      if (checkerField(field[1].value)) {
-        arrayElements[i].firstName = field[1].value;
-      }
-      if (checkerField(field[2].value)) {
-        arrayElements[i].lastName = field[2].value;
-      }
-      if (checkerField(field[3].value) && Number.isFinite(field[3].value) && field[3].value > 0) {
-        arrayElements[i].age = field[3].value;
-      }
-      if (checkerField(field[4].value)) {
-        arrayElements[i].email = field[4].value;
-      }
-      if (checkerField(field[5].value)) {
-        arrayElements[i].phone = field[5].value;
-      }
-      updateDB('update', arrayElements[i]);
-      refreshTable();
-      clearFields();
-      break;
-    }
+  const updatingValue = updatePerson(field[0].value);
+  if (updatingValue !== null) {
+    updateDB('update', updatingValue);
+    refreshTable();
+  } else {
+    alert('Такого ид не существует');
   }
+  clearFields();
 };
 
 const deleteButton = function() {
   if (checkDelete()) {
-    for (let i = 0; i < arrayElements.length; i++) {
-      if (arrayElements[i].id === field[0].value) {
-        const { id } = arrayElements[i];
-        arrayElements.splice(i, 1);
-        updateDB('delete', id);
-        refreshTable();
-        break;
-      }
+    const id = deletePerson(field[0].value);
+    if (id !== null) {
+      updateDB('delete', id);
+      refreshTable();
+    } else {
+      alert('ид не найдено');
     }
   } else {
     alert('only id');
@@ -151,14 +135,7 @@ const deleteButton = function() {
   clearFields();
 };
 
-function selectedDB(event) {
-  if (event.target.id === 'localstorage') {
-    readDB();
-  } else if (event.target.id === 'indexeddb') {
-    readDB();
-  }
-}
-
+// обновление таблицы
 function refreshTable() {
   list.innerHTML = '';
   for (let i = 0; i < arrayElements.length; i++) {
@@ -192,6 +169,7 @@ function clearFields() {
   }
 }
 
+// разные проверки
 function checkDelete() {
   return !(
     field[1].value !== '' ||
@@ -227,4 +205,61 @@ buttonUpdate.addEventListener('click', updateButton);
 buttonDelete.addEventListener('click', deleteButton);
 for (let i = 0; i < database.length; i++) {
   database[i].addEventListener('change', selectedDB);
+}
+
+// логика(?перенести в отдельный файл)
+function createPerson() {
+  divElement = {
+    id: field[0].value,
+    firstName: field[1].value,
+    lastName: field[2].value,
+    age: field[3].value,
+    email: field[4].value,
+    phone: field[5].value,
+  };
+  arrayElements.push(divElement);
+}
+
+function updatePerson(index) {
+  for (let i = 0; i < arrayElements.length; i++) {
+    if (arrayElements[i].id === index) {
+      if (checkerField(field[1].value)) {
+        arrayElements[i].firstName = field[1].value;
+      }
+      if (checkerField(field[2].value)) {
+        arrayElements[i].lastName = field[2].value;
+      }
+      if (checkerField(field[3].value) && Number.isFinite(field[3].value) && field[3].value > 0) {
+        arrayElements[i].age = field[3].value;
+      }
+      if (checkerField(field[4].value)) {
+        arrayElements[i].email = field[4].value;
+      }
+      if (checkerField(field[5].value)) {
+        arrayElements[i].phone = field[5].value;
+      }
+      return arrayElements[i];
+    }
+  }
+  return null;
+}
+
+function deletePerson(value) {
+  for (let i = 0; i < arrayElements.length; i++) {
+    if (arrayElements[i].id === value) {
+      const { id } = arrayElements[i];
+      arrayElements.splice(i, 1);
+      return id;
+    }
+  }
+  return null;
+}
+
+function checkerPeople(id) {
+  for (let i = 0; i < arrayElements.length; i++) {
+    if (arrayElements[i].id === id) {
+      return true;
+    }
+  }
+  return false;
 }
