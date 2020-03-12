@@ -28,14 +28,6 @@ request.onupgradeneeded = function() {
   }
 };
 
-function selectedDB(event) {
-  if (event.target.id === 'localstorage') {
-    readDB();
-  } else if (event.target.id === 'indexeddb') {
-    readDB();
-  }
-}
-
 function readDB() {
   if (database[0].checked) {
     arrayElements.length = 0;
@@ -204,7 +196,7 @@ buttonCreate.addEventListener('click', createButton);
 buttonUpdate.addEventListener('click', updateButton);
 buttonDelete.addEventListener('click', deleteButton);
 for (let i = 0; i < database.length; i++) {
-  database[i].addEventListener('change', selectedDB);
+  database[i].addEventListener('change', readDB);
 }
 
 // логика(?перенести в отдельный файл)
